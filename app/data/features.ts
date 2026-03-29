@@ -17,7 +17,7 @@ export const features: Feature[] = [
     description:
       "AI-powered reviews that gather context from your tools and write themselves. 90% faster. 93% satisfaction.",
     href: "/features/performance-reviews",
-    image: "marketing/features/performance-review-feature-card-5.png",
+    image: "marketing/feature-cards/performance-review-feature-card-5.png",
     badge: "The Future of People Management",
     featured: true,
   },
@@ -28,7 +28,7 @@ export const features: Feature[] = [
     description:
       "Windy prepares your 1:1 agendas using context from recent work, feedback, and past conversations.",
     href: "/features/one-on-ones",
-    image: "marketing/features/one-on-one-feature-card-4.png",
+    image: "marketing/feature-cards/one-on-one-feature-card-4.png",
   },
   {
     id: "pulse-surveys",
@@ -37,7 +37,7 @@ export const features: Feature[] = [
     description:
       "Create and deploy surveys to gather feedback, identify blockers, or run retrospectives.",
     href: "/features/pulse-surveys",
-    image: "marketing/features/pulse-feature-card-3.png",
+    image: "marketing/feature-cards/pulse-feature-card-3.png",
   },
   {
     id: "continuous-feedback",
@@ -46,7 +46,7 @@ export const features: Feature[] = [
     description:
       "A continuous feedback system that helps your team grow and improve consistently.",
     href: "/features/continuous-feedback",
-    image: "marketing/features/feedback-feature-card-2.png",
+    image: "marketing/feature-cards/feedback-feature-card-2.png",
   },
   {
     id: "calibrations",
@@ -55,6 +55,6 @@ export const features: Feature[] = [
     description:
       "AI-powered pre-reads highlight discrepancies and flag biases before calibration sessions.",
     href: "/features/calibrations",
-    image: "marketing/features/calibration-feature-card-2.png",
+    image: "marketing/feature-cards/calibration-feature-card-2.png",
   },
 ];

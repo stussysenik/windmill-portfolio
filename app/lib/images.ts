@@ -7,7 +7,6 @@ interface ImageOptions {
   fit?: "cover" | "contain" | "crop" | "scale-down";
   format?: "webp" | "avif" | "auto";
   dpi?: number;
-  quality?: number;
 }
 
 /**
@@ -21,13 +20,14 @@ export function cdnImage(key: string, options: ImageOptions = {}): string {
     fit = "cover",
     format = "webp",
     dpi = 3,
-    quality = 85,
   } = options;
 
-  const params = [`fit=${fit}`, `format=${format}`, `dpi=${dpi}`, `quality=${quality}`];
+  const params = [`fit=${fit}`];
 
   if (width) params.push(`width=${width}`);
   if (height) params.push(`height=${height}`);
+
+  params.push(`dpi=${dpi}`, `format=${format}`);
 
   return `${CDN_BASE}/${params.join(",")}/${S3_BASE}/${key}`;
 }

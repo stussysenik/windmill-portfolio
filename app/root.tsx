@@ -14,8 +14,10 @@ import "./app.css";
  *
  * Fonts loaded:
  * - Inter (body text) -- variable weight 100-900, optical sizing 14-32
- * - Satoshi is loaded via a local @font-face or CDN elsewhere; if not
- *   available the system-ui fallback in --font-display kicks in.
+ * - JetBrains Mono (code / mono text) -- weights 400, 500, 600
+ * - Satoshi (display / headings) -- weights 400, 500, 600, 700, 900 via Fontshare
+ *
+ * Also sets the favicon (SVG) for modern browsers.
  */
 export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -24,10 +26,16 @@ export const links = () => [
     href: "https://fonts.gstatic.com",
     crossOrigin: "anonymous" as const,
   },
+  { rel: "preconnect", href: "https://api.fontshare.com" },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:wght@400;500;600&display=swap",
   },
+  {
+    rel: "stylesheet",
+    href: "https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,900&display=swap",
+  },
+  { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
 ];
 
 /**
@@ -43,6 +51,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#667eea" />
         <Meta />
         <Links />
       </head>

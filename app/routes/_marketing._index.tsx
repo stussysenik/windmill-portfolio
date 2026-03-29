@@ -6,7 +6,6 @@ import { CostCalculator } from "~/components/home/CostCalculator";
 import { Testimonials } from "~/components/home/Testimonials";
 import { SecuritySection } from "~/components/home/SecuritySection";
 import { AIResearchCTA } from "~/components/home/AIResearchCTA";
-import { BottomCTA } from "~/components/home/BottomCTA";
 
 export function meta() {
   return [
@@ -34,7 +33,6 @@ export default function HomePage() {
       <Testimonials />
       <SecuritySection />
       <AIResearchCTA />
-      <BottomCTA />
     </>
   );
 }

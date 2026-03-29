@@ -16,12 +16,12 @@ export const footerColumns: FooterColumn[] = [
       { label: "Contact Us", href: "mailto:support@gowindmill.com" },
       {
         label: "Help Desk",
-        href: "https://help.gowindmill.com",
+        href: "https://help.gowindmill.com/",
         external: true,
       },
       {
         label: "Status",
-        href: "https://windmill.betteruptime.com",
+        href: "https://windmill.betteruptime.com/",
         external: true,
       },
     ],
@@ -64,6 +64,7 @@ export const footerColumns: FooterColumn[] = [
       { label: "Notion", href: "/integrations/notion" },
       { label: "Google Workspace", href: "/integrations/googleWorkspace" },
       { label: "Asana", href: "/integrations/asana" },
+      { label: "+23 more", href: "/integrations" },
     ],
   },
 ];
@@ -73,9 +74,15 @@ export const legalLinks: FooterLink[] = [
   { label: "Privacy Policy", href: "/legal/privacy-policy" },
   {
     label: "Trust Center",
-    href: "https://app.drata.com/trust/",
+    href: "https://app.drata.com/trust/7bd6416b-c1ac-4c6c-afb4-a015fe83db6b",
     external: true,
   },
+  {
+    label: "Do Not Sell or Share My Personal Information",
+    href: "https://app.termly.io/notify/5059523c-b34c-4e5a-a3a5-fa02bbdbed97",
+    external: true,
+  },
+  { label: "Consent Preferences", href: "#" },
 ];
 
 export const socialLinks = [
@@ -83,10 +90,12 @@ export const socialLinks = [
     label: "X",
     href: "https://x.com/trywindmill",
     icon: "twitter",
+    ariaLabel: "Follow Windmill on X (formerly Twitter)",
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/company/gowindmill",
+    href: "https://www.linkedin.com/company/gowindmill/",
     icon: "linkedin",
+    ariaLabel: "Follow Windmill on LinkedIn",
   },
 ];

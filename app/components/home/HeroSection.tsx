@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 import { Link } from "react-router";
 import { cn } from "~/lib/cn";
 import { Button } from "~/components/ui/Button";
@@ -21,7 +21,17 @@ import { Container } from "~/components/ui/Container";
  */
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-32 lg:py-40">
+    <section className="relative overflow-hidden pt-8 md:pt-10 pb-12 md:pb-24 lg:pt-[72px] lg:pb-[72px]">
+      {/* Gradient glow bar */}
+      <div className="absolute top-0 left-0 right-0 h-[200px] pointer-events-none" aria-hidden="true">
+        <div
+          className="w-full h-full"
+          style={{
+            background: 'linear-gradient(to right, #ffaedcc1 0%, #ffc37e98 25%, #6185f05c 50%, transparent 100%)',
+          }}
+        />
+      </div>
+
       <Container size="default">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -47,10 +57,10 @@ export function HeroSection() {
           </h1>
 
           {/* Subheading */}
-          <p className="mt-6 text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          <h2 className="mt-6 text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto font-normal">
             Finally, performance management that runs itself. 90% faster reviews.
             93% employee satisfaction. Zero nagging required.
-          </p>
+          </h2>
 
           {/* CTA buttons */}
           <motion.div
@@ -65,7 +75,7 @@ export function HeroSection() {
               </GlowButton>
             </Link>
             <Link to="/start">
-              <Button variant="secondary" size="lg">
+              <Button variant="secondary" size="lg" icon={<Calendar size={16} />}>
                 Book a demo
               </Button>
             </Link>

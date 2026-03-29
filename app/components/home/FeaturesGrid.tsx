@@ -34,9 +34,6 @@ export function FeaturesGrid() {
         {/* Section header */}
         <ScrollReveal>
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <Badge variant="brand" className="mb-4">
-              Features
-            </Badge>
             <h2 className="display-headline-2 text-3xl sm:text-4xl lg:text-5xl text-foreground">
               The work is already done. AI makes sense of it for you.
             </h2>
@@ -64,9 +61,6 @@ export function FeaturesGrid() {
                     </h3>
                     <p className="mt-2 text-lg font-medium text-foreground/80">
                       {featured.subtitle}
-                    </p>
-                    <p className="mt-4 text-muted-foreground leading-relaxed">
-                      {featured.description}
                     </p>
                     <div className="mt-6">
                       <Button
@@ -120,14 +114,11 @@ export function FeaturesGrid() {
                       {feature.badge}
                     </Badge>
                   )}
-                  <h3 className="display-headline-2 text-xl text-foreground">
+                  <h4 className="display-headline-2 text-xl text-foreground">
                     {feature.title}
-                  </h3>
+                  </h4>
                   <p className="mt-1 text-sm font-medium text-foreground/80">
                     {feature.subtitle}
-                  </p>
-                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed flex-1">
-                    {feature.description}
                   </p>
                   <div className="mt-4">
                     <span className="inline-flex items-center gap-1 text-sm font-semibold text-foreground group-hover:gap-2 transition-all">

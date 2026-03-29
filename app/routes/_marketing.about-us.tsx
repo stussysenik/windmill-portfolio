@@ -65,8 +65,8 @@ export default function AboutUsPage() {
                 className="flex flex-col items-center rounded-2xl border border-border bg-white p-8 text-center hover:shadow-card-hover transition-shadow duration-300"
               >
                 <Avatar
+                  name={member.name}
                   src={cdnImage(member.image, { width: 160, height: 160 })}
-                  alt={member.name}
                   size="xl"
                 />
                 <h3 className="mt-5 text-base font-display font-bold">

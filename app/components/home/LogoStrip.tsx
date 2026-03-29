@@ -48,12 +48,12 @@ export function LogoStrip() {
               >
                 <img
                   src={cdnImage(logo.src, {
-                    width: logo.width * 2,
-                    height: logo.height * 2,
+                    width: logo.cdnWidth,
+                    height: logo.cdnHeight,
                     fit: "contain",
                     format: "webp",
                   })}
-                  alt={`${logo.name} logo`}
+                  alt={`${logo.name}`}
                   width={logo.width}
                   height={logo.height}
                   className="h-8 sm:h-10 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0"
