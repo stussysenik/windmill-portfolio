@@ -1,0 +1,316 @@
+@import "tailwindcss";
+
+/* ============================================
+   WINDMILL DESIGN SYSTEM — CSS Custom Properties
+   Reverse-engineered from gowindmill.com
+   ============================================ */
+
+@theme {
+  /* --- Colors (oklch achromatic system) --- */
+  --color-background: oklch(1 0 0);
+  --color-foreground: oklch(0.145 0 0);
+  --color-primary: oklch(0.205 0 0);
+  --color-primary-foreground: oklch(0.985 0 0);
+  --color-secondary: oklch(0.97 0 0);
+  --color-secondary-foreground: oklch(0.205 0 0);
+  --color-muted: oklch(0.97 0 0);
+  --color-muted-foreground: oklch(0.46 0 0);
+  --color-accent: oklch(0.97 0 0);
+  --color-accent-foreground: oklch(0.205 0 0);
+  --color-destructive: oklch(0.577 0.245 27.325);
+  --color-border: oklch(0.922 0 0);
+  --color-input: oklch(0.922 0 0);
+  --color-ring: oklch(0.708 0 0);
+
+  /* --- Section backgrounds --- */
+  --color-cyan-section: #e8f6fa;
+  --color-beige-section: #f4efed;
+  --color-cream-footer: #faf5f1;
+  --color-warm-white: #fdf8f6;
+
+  /* --- Chart colors --- */
+  --color-chart-1: oklch(0.646 0.222 41.116);
+  --color-chart-2: oklch(0.6 0.118 184.704);
+  --color-chart-3: oklch(0.398 0.07 227.392);
+  --color-chart-4: oklch(0.828 0.189 84.429);
+  --color-chart-5: oklch(0.769 0.188 70.08);
+
+  /* --- Testimonial highlight colors --- */
+  --color-highlight-pink: #f0d1dc;
+  --color-highlight-yellow: #f4ecb3;
+  --color-highlight-blue: #cbe6ff;
+  --color-highlight-green: #d8e5d1;
+  --color-highlight-rose: #fadce5;
+  --color-highlight-peach: #f8e2ca;
+  --color-highlight-red: #fecaca;
+  --color-highlight-purple: #e2d4ef;
+  --color-highlight-sage: #d2dfc1;
+
+  /* --- Typography --- */
+  --font-display: "Satoshi", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* --- Radius --- */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.625rem;
+  --radius-xl: 0.875rem;
+  --radius-2xl: 1rem;
+  --radius-full: 9999px;
+
+  /* --- Shadows --- */
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-nav: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-dramatic: 0 0 35px rgba(0, 0, 0, 0.25);
+  --shadow-button-inset: inset 0 2px 0 rgba(255, 255, 255, 0.15);
+  --shadow-ring: 0 0 0 1px rgba(106, 114, 130, 0.1);
+
+  /* --- Easing --- */
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-material: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* --- Animation keyframes --- */
+  --animate-marquee: marquee var(--marquee-duration, 30s) linear infinite;
+  --animate-marquee-vertical: marquee-vertical var(--marquee-duration, 30s) linear infinite;
+  --animate-glow-rotate: glow-rotate 4s linear infinite;
+  --animate-pulse-badge: pulse-badge 2s ease-in-out infinite;
+  --animate-shiny-text: shiny-text 8s ease-in-out infinite;
+  --animate-blink-cursor: blink-cursor 0.8s step-end infinite;
+  --animate-fade-in-up: fade-in-up 0.6s var(--ease-out-quint) both;
+}
+
+/* --- @keyframes --- */
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-100% - var(--gap, 1rem))); }
+}
+
+@keyframes marquee-vertical {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(calc(-100% - var(--gap, 1rem))); }
+}
+
+@keyframes glow-rotate {
+  0% { --glow-angle: 0deg; }
+  100% { --glow-angle: 360deg; }
+}
+
+@keyframes pulse-badge {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes shiny-text {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typing-dot {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+/* --- @property for glow rotation --- */
+@property --glow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* --- Base styles --- */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-color: var(--color-border);
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* --- Component styles --- */
+
+@layer components {
+  .display-headline {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+
+  .display-headline-2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+  }
+
+  .container-site {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-site {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-site {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* Fancy glow effect on CTA buttons */
+  .fancy-glow {
+    position: relative;
+  }
+
+  .fancy-glow::before,
+  .fancy-glow::after {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    background: conic-gradient(
+      from var(--glow-angle),
+      #6a9eff,
+      #e76fe5,
+      #ffdb00,
+      #fc5818,
+      #6a9eff
+    );
+    animation: glow-rotate 4s linear infinite;
+  }
+
+  .fancy-glow::before {
+    inset: -2px;
+    filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.5s var(--ease-material);
+    z-index: -2;
+  }
+
+  .fancy-glow::after {
+    inset: -1px;
+    opacity: 0;
+    transition: opacity 0.3s var(--ease-material);
+    z-index: -1;
+  }
+
+  .fancy-glow:hover::before {
+    opacity: 0.8;
+  }
+
+  .fancy-glow:hover::after {
+    opacity: 0.6;
+  }
+
+  .fancy-glow.glow-active::before {
+    opacity: 0.8;
+    animation-play-state: running;
+  }
+
+  .fancy-glow.glow-active::after {
+    opacity: 0.6;
+    animation-play-state: running;
+  }
+
+  /* Streaming cursor for chat */
+  .streaming-cursor::after {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: currentColor;
+    animation: blink-cursor 0.8s step-end infinite;
+    margin-left: 1px;
+    vertical-align: text-bottom;
+  }
+
+  /* Typing indicator dots */
+  .typing-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-muted-foreground);
+    animation: typing-dot 1.4s infinite;
+  }
+
+  .typing-dot:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  .typing-dot:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  /* Marquee mask for soft edges */
+  .marquee-mask {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+  }
+}
+
+/* --- Utility: reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
