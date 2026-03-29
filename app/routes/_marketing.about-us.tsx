@@ -1,77 +1,27 @@
 import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 import { Container } from "~/components/ui/Container";
+import { Avatar } from "~/components/ui/Avatar";
+import { ScrollReveal } from "~/components/motion/ScrollReveal";
+import { StaggerGrid } from "~/components/motion/StaggerGrid";
+import { teamMembers } from "~/data/team";
+import { cdnImage } from "~/lib/images";
 
-/**
- * About Us page -- company story, mission, and team overview.
- *
- * This is a scaffold that will be fleshed out in Step 6. For now it
- * provides a real route to test the marketing layout and navigation.
- */
 export function meta() {
   return [
-    { title: "About Us -- Windmill" },
+    { title: "About Us — Windmill" },
     {
       name: "description",
       content:
-        "Meet the team building the future of performance management. Learn about Windmill's mission, values, and story.",
+        "Meet the team behind Windmill. We're a motivated bunch based in New York City building the future of performance management.",
     },
   ];
 }
 
-const values = [
-  {
-    title: "People First",
-    description:
-      "We believe technology should amplify human judgment, not replace it. Every feature we ship is designed to help managers have better conversations.",
-  },
-  {
-    title: "Radical Transparency",
-    description:
-      "Clear expectations, honest feedback, and open communication are the foundation of high-performing teams. We practice what we preach.",
-  },
-  {
-    title: "Bias for Action",
-    description:
-      "We ship fast, learn from real usage, and iterate. Perfect is the enemy of good -- and our customers can't wait for perfect.",
-  },
-  {
-    title: "Craft & Quality",
-    description:
-      "Details matter. From pixel-perfect UI to thoughtful AI prompts, we sweat the small stuff because our users notice.",
-  },
-];
-
-const team = [
-  { name: "Alex Chen", role: "CEO & Co-founder" },
-  { name: "Sarah Kim", role: "CTO & Co-founder" },
-  { name: "Marcus Johnson", role: "Head of Product" },
-  { name: "Priya Patel", role: "Head of Design" },
-  { name: "James Wright", role: "Head of Engineering" },
-  { name: "Mia Torres", role: "Head of Customer Success" },
-];
-
-/** Staggered fade-in variants for list items. */
-const stagger = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 },
-  },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
-
 export default function AboutUsPage() {
   return (
     <>
-      {/* ───────────── Hero ───────────── */}
+      {/* Hero */}
       <section className="py-24 sm:py-32">
         <Container size="medium">
           <motion.div
@@ -81,116 +31,95 @@ export default function AboutUsPage() {
             className="text-center"
           >
             <h1 className="display-headline text-4xl sm:text-5xl lg:text-6xl">
-              We're building the future
-              <br />
-              of performance management
+              Our team
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Windmill started with a simple question: why do performance reviews
-              still feel like they were designed in 1995? We're a small,
-              passionate team on a mission to fix that.
+              We're a motivated bunch based in New York City, passionate about
+              making performance management something people actually enjoy.
             </p>
-          </motion.div>
-        </Container>
-      </section>
-
-      {/* ───────────── Mission ───────────── */}
-      <section className="py-20 bg-[var(--color-beige-section)]">
-        <Container size="medium">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <h2 className="display-headline-2 text-3xl sm:text-4xl text-center">
-              Our Mission
-            </h2>
-            <p className="mt-6 text-lg text-muted-foreground text-center max-w-2xl mx-auto leading-relaxed">
-              To make performance management feel less like paperwork and more
-              like progress. We combine AI with thoughtful design to help every
-              team run faster, fairer review cycles -- so people can focus on
-              growth, not busywork.
-            </p>
-          </motion.div>
-        </Container>
-      </section>
-
-      {/* ───────────── Values ───────────── */}
-      <section className="py-20">
-        <Container>
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="display-headline-2 text-3xl sm:text-4xl text-center"
-          >
-            Our Values
-          </motion.h2>
-
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            className="mt-14 grid gap-8 sm:grid-cols-2"
-          >
-            {values.map((value) => (
-              <motion.div
-                key={value.title}
-                variants={fadeUp}
-                className="rounded-2xl border border-border bg-white p-8"
+            <div className="mt-8">
+              <a
+                href="https://jobs.ashbyhq.com/windmill"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-base font-medium text-foreground hover:text-primary transition-colors underline underline-offset-4"
               >
-                <h3 className="text-lg font-display font-bold">
-                  {value.title}
-                </h3>
-                <p className="mt-3 text-muted-foreground leading-relaxed">
-                  {value.description}
-                </p>
-              </motion.div>
-            ))}
+                Join the team
+                <ExternalLink size={16} />
+              </a>
+            </div>
           </motion.div>
         </Container>
       </section>
 
-      {/* ───────────── Team ───────────── */}
-      <section className="py-20 bg-[var(--color-cyan-section)]">
-        <Container>
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="display-headline-2 text-3xl sm:text-4xl text-center"
+      {/* Team Grid */}
+      <section className="pb-24 sm:pb-32">
+        <Container size="wide">
+          <StaggerGrid
+            className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            staggerDelay={0.06}
           >
-            Meet the Team
-          </motion.h2>
-
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-            className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-          >
-            {team.map((member) => (
-              <motion.div
+            {teamMembers.map((member) => (
+              <div
                 key={member.name}
-                variants={fadeUp}
-                className="flex flex-col items-center rounded-2xl border border-border bg-white p-8 text-center"
+                className="flex flex-col items-center rounded-2xl border border-border bg-white p-8 text-center hover:shadow-card-hover transition-shadow duration-300"
               >
-                {/* Avatar placeholder */}
-                <div className="h-20 w-20 rounded-full bg-gradient-to-br from-muted to-border" />
-                <h3 className="mt-4 text-base font-display font-bold">
+                <Avatar
+                  src={cdnImage(member.image, { width: 160, height: 160 })}
+                  alt={member.name}
+                  size="xl"
+                />
+                <h3 className="mt-5 text-base font-display font-bold">
                   {member.name}
                 </h3>
                 <p className="mt-1 text-sm text-muted-foreground">
                   {member.role}
                 </p>
-              </motion.div>
+
+                {/* Social links */}
+                {(member.twitter || member.linkedin) && (
+                  <div className="mt-4 flex items-center gap-3">
+                    {member.twitter && (
+                      <a
+                        href={member.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground transition-colors"
+                        aria-label={`${member.name} on X`}
+                      >
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                      </a>
+                    )}
+                    {member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground transition-colors"
+                        aria-label={`${member.name} on LinkedIn`}
+                      >
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
             ))}
-          </motion.div>
+          </StaggerGrid>
         </Container>
       </section>
     </>
