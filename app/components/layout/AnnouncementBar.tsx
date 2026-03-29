@@ -29,12 +29,11 @@ export function AnnouncementBar() {
           <div className="relative flex items-center justify-center px-4 py-2.5 text-sm font-body">
             {/* Message */}
             <p className="text-center text-white/90">
-              Windmill 2.0 is here -- AI-powered performance reviews.{" "}
+              Get our guide to measuring and driving AI adoption{" "}
               <Link
-                to="/blog/windmill-2"
+                to="/lp/driving-ai-adoption"
                 className="inline-flex items-center gap-1 font-semibold text-white underline underline-offset-2 hover:text-white/80 transition-colors"
               >
-                Read the announcement
                 <ArrowRight size={14} className="shrink-0" />
               </Link>
             </p>

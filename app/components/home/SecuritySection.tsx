@@ -1,110 +1,47 @@
-import { Shield, Lock, Server, Eye, CheckCircle2 } from "lucide-react";
-import { cn } from "~/lib/cn";
-import { Container } from "~/components/ui/Container";
-import { Card, CardContent } from "~/components/ui/Card";
-import { Badge } from "~/components/ui/Badge";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router";
 import { ScrollReveal } from "~/components/motion/ScrollReveal";
-import { StaggerGrid } from "~/components/motion/StaggerGrid";
 
 /**
- * SecuritySection -- builds trust by showcasing Windmill's security posture.
+ * SecuritySection -- a simple, centered dark section that communicates
+ * Windmill's enterprise security posture at a glance.
  *
  * HR data is highly sensitive. This section addresses the #1 objection
- * enterprise buyers have: "Is my data safe?" It features a grid of
- * security credential cards and a short reassurance paragraph.
- *
- * The dark Card variant is used here to visually differentiate this
- * section from the rest of the page and signal "serious / trustworthy."
+ * enterprise buyers have ("Is my data safe?") with a brief, confident
+ * statement rather than a wall of cards.
  */
-
-const securityItems = [
-  {
-    icon: Shield,
-    title: "SOC 2 Type II",
-    description:
-      "Independently audited controls for security, availability, and confidentiality.",
-  },
-  {
-    icon: Lock,
-    title: "End-to-end Encryption",
-    description:
-      "All data encrypted in transit (TLS 1.3) and at rest (AES-256).",
-  },
-  {
-    icon: Server,
-    title: "US-based Infrastructure",
-    description:
-      "Hosted on AWS in US regions with 99.99% uptime SLA.",
-  },
-  {
-    icon: Eye,
-    title: "Privacy by Design",
-    description:
-      "GDPR and CCPA compliant. Your data is never used to train AI models.",
-  },
-] as const;
-
 export function SecuritySection() {
   return (
-    <section className="py-20 sm:py-28 bg-[oklch(0.145_0_0)] text-white">
-      <Container>
+    <section className="bg-black m-0 md:m-8 lg:m-16 rounded-none md:rounded-2xl py-20 sm:py-28">
+      <div className="mx-auto max-w-2xl text-center px-6">
         <ScrollReveal>
-          <div className="mx-auto max-w-2xl text-center mb-14">
-            <Badge className="mb-4 bg-white/10 text-white/90 border-0">
-              Security & Compliance
-            </Badge>
-            <h2 className="display-headline-2 text-3xl sm:text-4xl lg:text-5xl text-white">
-              Enterprise-grade security
-            </h2>
-            <p className="mt-4 text-lg text-white/60 leading-relaxed">
-              Your people data deserves the highest level of protection.
-              Windmill is built with security at every layer.
-            </p>
+          {/* Pulsing green dot badge */}
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-gray-300">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            </span>
+            SOC 2 Type II and GDPR compliant
           </div>
-        </ScrollReveal>
 
-        <StaggerGrid
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
-          staggerDelay={0.1}
-        >
-          {securityItems.map((item) => (
-            <Card
-              key={item.title}
-              variant="glass"
-              className="group"
-            >
-              <CardContent className="p-6">
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 group-hover:bg-white/15 transition-colors">
-                  <item.icon size={20} className="text-white/80" />
-                </div>
-                <h3 className="text-base font-semibold text-white mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-white/50 leading-relaxed">
-                  {item.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </StaggerGrid>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold tracking-tight text-white">
+            Backed by enterprise-grade security and scale
+          </h2>
 
-        {/* Trust badges row */}
-        <ScrollReveal delay={0.3}>
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm text-white/40">
-            {[
-              "GDPR Compliant",
-              "CCPA Compliant",
-              "99.99% Uptime",
-              "24/7 Monitoring",
-            ].map((label) => (
-              <span key={label} className="inline-flex items-center gap-1.5">
-                <CheckCircle2 size={14} className="text-emerald-400/60" />
-                {label}
-              </span>
-            ))}
-          </div>
+          <p className="mt-5 text-lg text-gray-400 leading-relaxed max-w-xl mx-auto">
+            Security isn&apos;t an add-on at Windmill &mdash; it&apos;s foundational. We&apos;re
+            SOC 2 Type II certified and GDPR compliant.
+          </p>
+
+          <Link
+            to="/trust"
+            className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-white hover:text-gray-300 transition-colors"
+          >
+            Learn more
+            <ArrowRight size={14} />
+          </Link>
         </ScrollReveal>
-      </Container>
+      </div>
     </section>
   );
 }

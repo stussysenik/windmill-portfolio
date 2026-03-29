@@ -22,11 +22,11 @@ export function LogoStrip() {
   const doubled = [...customerLogos, ...customerLogos];
 
   return (
-    <section className="py-16 sm:py-20 bg-[var(--color-beige-section)]">
+    <section className="py-16 sm:py-20 bg-[#e8f6fa]">
       <Container>
         <ScrollReveal>
           <p className="text-center text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-10">
-            Trusted by industry leaders
+            Trusted by AI-forward companies
           </p>
         </ScrollReveal>
 

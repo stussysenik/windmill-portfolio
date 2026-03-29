@@ -104,10 +104,10 @@ export function Testimonials() {
               Testimonials
             </Badge>
             <h2 className="display-headline-2 text-3xl sm:text-4xl lg:text-5xl text-foreground">
-              Loved by People teams everywhere
+              Real feedback from real users
             </h2>
             <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto">
-              Don't take our word for it. Here's what our customers say.
+              Anonymous notes from people who used Windmill for their performance reviews.
             </p>
           </div>
         </ScrollReveal>

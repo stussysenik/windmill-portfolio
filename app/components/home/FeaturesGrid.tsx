@@ -29,7 +29,7 @@ export function FeaturesGrid() {
   const rest = features.filter((f) => !f.featured);
 
   return (
-    <section className="py-20 sm:py-28">
+    <section className="py-20 sm:py-28 bg-gradient-to-b from-[#e8f6fa] to-white">
       <Container>
         {/* Section header */}
         <ScrollReveal>
@@ -38,13 +38,10 @@ export function FeaturesGrid() {
               Features
             </Badge>
             <h2 className="display-headline-2 text-3xl sm:text-4xl lg:text-5xl text-foreground">
-              Everything you need to run
-              <br className="hidden sm:block" />
-              performance cycles
+              The work is already done. AI makes sense of it for you.
             </h2>
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-              From AI-drafted reviews to bias detection in calibrations,
-              Windmill handles the heavy lifting so your team can focus on growth.
+              Memory fades quickly. Windmill captures your work and feedback so you can focus on what really matters.
             </p>
           </div>
         </ScrollReveal>

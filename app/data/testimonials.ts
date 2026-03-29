@@ -193,4 +193,10 @@ export const testimonials: Testimonial[] = [
     highlight: "going back to spreadsheets",
     highlightColor: highlightColors.rose,
   },
+  {
+    id: 29,
+    text: "Windy turned a half-day task into 30 minutes.",
+    highlight: "half-day task into 30 minutes",
+    highlightColor: highlightColors.peach,
+  },
 ];

@@ -24,7 +24,7 @@ export const features: Feature[] = [
   {
     id: "one-on-ones",
     title: "1:1s",
-    subtitle: "Smart, automated agendas for effective 1:1 meetings.",
+    subtitle: "Smart, automated agendas for effective 1:1 meetings with your team.",
     description:
       "Windy prepares your 1:1 agendas using context from recent work, feedback, and past conversations.",
     href: "/features/one-on-ones",
@@ -33,7 +33,7 @@ export const features: Feature[] = [
   {
     id: "pulse-surveys",
     title: "Pulse Surveys",
-    subtitle: "Custom surveys to understand team sentiment.",
+    subtitle: "Custom surveys to understand team sentiment, gather blockers, or run retros.",
     description:
       "Create and deploy surveys to gather feedback, identify blockers, or run retrospectives.",
     href: "/features/pulse-surveys",
@@ -42,7 +42,7 @@ export const features: Feature[] = [
   {
     id: "continuous-feedback",
     title: "Continuous Feedback",
-    subtitle: "Ongoing feedback that drives growth.",
+    subtitle: "Ongoing feedback system to help your team grow and improve consistently.",
     description:
       "A continuous feedback system that helps your team grow and improve consistently.",
     href: "/features/continuous-feedback",
@@ -51,7 +51,7 @@ export const features: Feature[] = [
   {
     id: "calibrations",
     title: "Calibrations",
-    subtitle: "AI-powered calibration pre-reads.",
+    subtitle: "AI-powered pre-reads highlight discrepancies and flag biases for faster, fairer calibrations.",
     description:
       "AI-powered pre-reads highlight discrepancies and flag biases before calibration sessions.",
     href: "/features/calibrations",

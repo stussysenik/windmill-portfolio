@@ -54,10 +54,10 @@ export function CostCalculator() {
               ROI Calculator
             </Badge>
             <h2 className="display-headline-2 text-3xl sm:text-4xl text-foreground">
-              See how much time you'll save
+              See how much time you're wasting.
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Move the slider to estimate savings for your organization.
+              Calculate the true cost of your current performance review process—and how much you could save.
             </p>
           </div>
         </ScrollReveal>

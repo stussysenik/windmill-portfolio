@@ -136,16 +136,16 @@ export function Header() {
 
           {/* Right side: CTA + mobile toggle */}
           <div className="flex items-center gap-3">
-            <Link to="/chat" className="hidden sm:block">
-              <Button variant="secondary" size="sm">
-                Try AI Demo
-              </Button>
-            </Link>
-            <a href="https://app.gowindmill.com" target="_blank" rel="noopener noreferrer">
-              <Button variant="nav" size="sm" icon={<ArrowRight size={14} />}>
-                Get Started
+            <a href="https://app.gowindmill.com/auth" className="hidden sm:block">
+              <Button variant="ghost" size="sm">
+                Log in
               </Button>
             </a>
+            <Link to="/start">
+              <Button variant="nav" size="sm" icon={<ArrowRight size={14} />}>
+                Book a demo
+              </Button>
+            </Link>
 
             {/* Mobile hamburger */}
             <MobileNav />

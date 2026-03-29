@@ -10,7 +10,7 @@ import { cdnImage } from "~/lib/images";
  * VideoSection -- a cinematic product demo embed with parallax depth.
  *
  * Shows a thumbnail image from the CDN that, when clicked, swaps in an
- * embedded video (YouTube/Vimeo iframe). The thumbnail has a subtle
+ * embedded Loom video iframe. The thumbnail has a subtle
  * parallax scroll effect driven by `useScroll` + `useTransform`.
  *
  * The play button uses a frosted-glass aesthetic with a scale-up hover
@@ -20,8 +20,9 @@ import { cdnImage } from "~/lib/images";
  * image has proper alt text.
  */
 
-const VIDEO_EMBED_URL = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
+const VIDEO_EMBED_URL = "https://www.loom.com/embed/product-demo?autoplay=1";
 const THUMBNAIL_KEY = "marketing/hero/product-demo-thumbnail.png";
+const THUMB_TACKS_KEY = "marketing/hero/thumb-tacks.png";
 
 export function VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -38,7 +39,16 @@ export function VideoSection() {
     <section ref={containerRef} className="relative py-16 sm:py-20 lg:py-24">
       <Container size="wide">
         <ScrollReveal>
-          <div className="relative mx-auto max-w-4xl overflow-hidden rounded-2xl shadow-dramatic">
+          <div className="relative mx-auto max-w-4xl">
+            {/* Thumb tacks decoration */}
+            <img
+              src={cdnImage(THUMB_TACKS_KEY, { width: 1280, format: "webp" })}
+              alt=""
+              aria-hidden="true"
+              className="w-full pointer-events-none"
+              loading="lazy"
+            />
+          <div className="overflow-hidden rounded-2xl shadow-dramatic">
             {/* Parallax thumbnail */}
             {!isPlaying && (
               <motion.div style={{ y }} className="relative">
@@ -91,6 +101,7 @@ export function VideoSection() {
                 />
               </motion.div>
             )}
+          </div>
           </div>
         </ScrollReveal>
       </Container>
