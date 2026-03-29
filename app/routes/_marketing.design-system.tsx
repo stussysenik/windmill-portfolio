@@ -21,6 +21,17 @@ export function meta() {
   ];
 }
 
+const sections = [
+  "Typography",
+  "Colors",
+  "Spacing",
+  "Buttons",
+  "Container Sizes",
+  "Border Radius",
+  "Shadows",
+  "Motion",
+];
+
 export default function DesignSystemPage() {
   return (
     <section className="py-20">
@@ -35,12 +46,29 @@ export default function DesignSystemPage() {
             Design System
           </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
-            A living reference of Windmill's visual language -- typography,
-            colors, components, and motion primitives.
+            A living reference of Windmill's visual language — typography,
+            colors, components, and motion primitives. Reverse-engineered from
+            gowindmill.com's production CSS.
           </p>
         </motion.div>
 
-        <div className="mt-16 space-y-20">
+        <div className="mt-16 flex gap-16">
+          {/* Sticky sidebar nav */}
+          <nav className="hidden lg:block w-48 shrink-0">
+            <div className="sticky top-24 space-y-1">
+              {sections.map((section) => (
+                <a
+                  key={section}
+                  href={`#${section.toLowerCase().replace(/\s+/g, "-")}`}
+                  className="block py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {section}
+                </a>
+              ))}
+            </div>
+          </nav>
+
+          <div className="flex-1 min-w-0 space-y-20">
           {/* ─── Typography ─── */}
           <DesignSection title="Typography">
             <div className="space-y-6">
@@ -111,6 +139,38 @@ export default function DesignSystemPage() {
                     />
                   ))}
                 </div>
+              </div>
+            </div>
+          </DesignSection>
+
+          {/* ─── Spacing ─── */}
+          <DesignSection title="Spacing">
+            <div className="space-y-4">
+              <Label>4px base grid</Label>
+              <div className="space-y-3">
+                {[
+                  { name: "1 (4px)", width: "w-1" },
+                  { name: "2 (8px)", width: "w-2" },
+                  { name: "3 (12px)", width: "w-3" },
+                  { name: "4 (16px)", width: "w-4" },
+                  { name: "6 (24px)", width: "w-6" },
+                  { name: "8 (32px)", width: "w-8" },
+                  { name: "12 (48px)", width: "w-12" },
+                  { name: "16 (64px)", width: "w-16" },
+                  { name: "24 (96px)", width: "w-24" },
+                ].map(({ name, width }) => (
+                  <div key={name} className="flex items-center gap-4">
+                    <span className="w-24 text-xs font-mono text-muted-foreground text-right shrink-0">
+                      {name}
+                    </span>
+                    <div
+                      className={cn(
+                        "h-3 rounded-sm bg-foreground/80",
+                        width
+                      )}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </DesignSection>
@@ -246,6 +306,7 @@ export default function DesignSystemPage() {
               ))}
             </div>
           </DesignSection>
+          </div>
         </div>
       </Container>
     </section>
