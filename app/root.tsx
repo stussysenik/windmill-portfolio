@@ -7,15 +7,22 @@ import {
   ScrollRestoration,
 } from "react-router";
 
-import type { Route } from "./+types/root";
 import "./app.css";
 
-export const links: Route.LinksFunction = () => [
+/**
+ * Root links -- preconnect to font CDNs for faster first paint.
+ *
+ * Fonts loaded:
+ * - Inter (body text) -- variable weight 100-900, optical sizing 14-32
+ * - Satoshi is loaded via a local @font-face or CDN elsewhere; if not
+ *   available the system-ui fallback in --font-display kicks in.
+ */
+export const links = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",
     href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
+    crossOrigin: "anonymous" as const,
   },
   {
     rel: "stylesheet",
@@ -23,6 +30,13 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+/**
+ * Layout -- the outermost HTML shell shared by every route.
+ *
+ * This wraps the entire application (including error boundaries) with the
+ * `<html>`, `<head>`, and `<body>` tags. React Router injects `<Meta>`,
+ * `<Links>`, `<Scripts>`, and `<ScrollRestoration>` automatically.
+ */
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -41,11 +55,24 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+/**
+ * App -- the root route component.
+ *
+ * Simply renders the matched child route via `<Outlet />`. Layout chrome
+ * (header, footer) lives in the `_marketing` layout route so non-marketing
+ * routes (e.g. /chat) can opt out.
+ */
 export default function App() {
   return <Outlet />;
 }
 
-export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+/**
+ * ErrorBoundary -- catches unhandled errors and 404s.
+ *
+ * Renders a minimal error page. In development, includes the stack trace
+ * for faster debugging.
+ */
+export function ErrorBoundary({ error }: { error: unknown }) {
   let message = "Oops!";
   let details = "An unexpected error occurred.";
   let stack: string | undefined;
@@ -63,10 +90,10 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
 
   return (
     <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
+      <h1 className="text-4xl font-display font-bold">{message}</h1>
+      <p className="mt-2 text-muted-foreground">{details}</p>
       {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
+        <pre className="mt-4 w-full p-4 overflow-x-auto rounded-lg bg-muted text-sm">
           <code>{stack}</code>
         </pre>
       )}
