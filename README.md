@@ -21,6 +21,9 @@
 
 ## Why This Exists
 
+![Demo](demo.gif)
+
+
 This project demonstrates how I'd work as a **Founding Design Engineer** at Windmill. I reverse-engineered the entire production marketing site from scratch — every text string, CDN parameter, and interaction — then rebuilt it in the product stack with three "atomic changes" showcasing founding-level craft:
 
 | Change | What It Proves |
